@@ -15,5 +15,5 @@ app.prepare().then(() => {
     console.log(`> Ready on http://localhost:${process.env.PORT || 3000}`);
   });
 }).catch(err => {
-  console.error('Error during app preparation:', err); // Log preparation errors
+  console.error('Error during app preparation:', err);
 });
