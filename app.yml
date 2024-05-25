@@ -1,0 +1,11 @@
+name: my-course-client-app
+location: <your-resource-group-location>
+appService:
+  name: myCourseClientApp
+  resourceGroup: <your-resource-group>
+  plan:
+    name: myAppServicePlan
+    sku: P1V2
+runtime:
+  stack: node
+  version: "20.9.0"
