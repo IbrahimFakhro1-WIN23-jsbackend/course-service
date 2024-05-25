@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "node server.js",
-    "lint": "next lint"
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "next build"
   },
   "dependencies": {
     "@apollo/client": "^3.10.4",
@@ -24,5 +25,4 @@
   "engines": {
     "node": ">=14.0.0"
   }
-  
 }
