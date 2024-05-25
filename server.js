@@ -1,19 +1,11 @@
-const { createServer } = require('http');
-const { parse } = require('url');
-const next = require('next');
+const http = require('http');
 
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
-const handle = app.getRequestHandler();
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello Minimal Node.js App\n');
+});
 
-app.prepare().then(() => {
-  createServer((req, res) => {
-    const parsedUrl = parse(req.url, true);
-    handle(req, res, parsedUrl);
-  }).listen(process.env.PORT || 3000, (err) => {
-    if (err) throw err;
-    console.log(`> Ready on http://localhost:${process.env.PORT || 3000}`);
-  });
-}).catch(err => {
-  console.error('Error during app preparation:', err);
+server.listen(process.env.PORT || 3000, () => {
+  console.log(`Server running at port ${process.env.PORT || 3000}`);
 });
