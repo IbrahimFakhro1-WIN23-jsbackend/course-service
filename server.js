@@ -22,7 +22,10 @@ app.prepare().then(() => {
 
     handle(req, res, parsedUrl);
   }).listen(process.env.PORT || 3000, (err) => {
-    if (err) throw err;
+    if (err) {
+      console.error('Error starting server:', err);
+      return;
+    }
     console.log(`> Ready on http://localhost:${process.env.PORT || 3000}`);
   });
 }).catch(err => {
